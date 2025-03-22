@@ -1,0 +1,33 @@
+import random
+import time
+
+LEFT_MAX=1
+RIGHT_MAX=10
+OPERANDS=['+','-','*']
+
+def generate_problem():
+    left=random.randint(LEFT_MAX,RIGHT_MAX)
+    right=random.randint(LEFT_MAX,RIGHT_MAX)
+    operand=random.choice(OPERANDS)
+    express=str(left)+operand+str(right)
+    answer=eval(express)
+    return express,answer
+    
+
+print("Are you ready for the quiz??")
+input()
+st=time.time()
+for i in range(5):
+    express,answer=generate_problem()
+    print('-'*100)
+    while True:
+        print("Problem #:",i+1)
+        print(express,'=',end=' ')
+        value=input()
+        if(str(answer)==value):
+            print("Correct!")
+            break
+        
+end=time.time()
+
+print("Total time taken is :",round(end-st,2))
